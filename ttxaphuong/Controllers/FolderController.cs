@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ttxaphuong.DTO.News_events;
 using ttxaphuong.DTO.Uploads;
@@ -18,21 +18,21 @@ namespace ttxaphuong.Controllers
         }
 
         [HttpGet]
-        // [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager")]
         public async Task<ActionResult<IEnumerable<FolderDTO>>> GetFolder()
         {
             return Ok(await _folderService.GetAllFolderAsync());
         }
 
         [HttpGet("{id}")]
-        // [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager")]
         public async Task<IActionResult> GetFolderById(int id)
         {
             return Ok(await _folderService.GetFolderByIdAsync(id));
         }
 
         [HttpPost]
-        // [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager")]
         public async Task<IActionResult> CreateFolder([FromBody] FolderDTO folder)
         {
             return Ok(await _folderService.CreateFolderAsync(folder));
