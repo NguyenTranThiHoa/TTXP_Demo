@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using ttxaphuong.Data;
 using ttxaphuong.Interfaces;
 using WebDoAn2.Exceptions;
@@ -6,17 +6,20 @@ using ttxaphuong.DTO.Uploads;
 using Microsoft.EntityFrameworkCore;
 using ttxaphuong.Models.Loads;
 
+
 namespace ttxaphuong.Services
 {
     public class FolderService : IFolderService
     {
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
+        private readonly IWebHostEnvironment _env;
 
-        public FolderService(ApplicationDbContext context, IMapper mapper)
+        public FolderService(ApplicationDbContext context, IMapper mapper, IWebHostEnvironment env)
         {
             _context = context;
             _mapper = mapper;
+            _env = env;
         }
 
         public async Task<IEnumerable<FolderDTO>> GetAllFolderAsync()
@@ -77,6 +80,50 @@ namespace ttxaphuong.Services
             }
         }
 
+        //public async Task<FolderDTO> CreateFolderAsync(FolderDTO folder)
+        //{
+        //    try
+        //    {
+        //        if (string.IsNullOrEmpty(folder.Name_folder))
+        //        {
+        //            throw new BadRequestException("Tên danh mục không được để trống.");
+        //        }
+
+        //        if (folder.ParentId.HasValue)
+        //        {
+        //            var parentExists = await _context.Folders.AnyAsync(c => c.Id_folder == folder.ParentId.Value);
+        //            if (!parentExists)
+        //            {
+        //                throw new NotFoundException($"Danh mục cha với Id {folder.ParentId.Value} không tồn tại.");
+        //            }
+        //        }
+
+        //        var categoryModel = _mapper.Map<FolderModel>(folder);
+
+        //        _context.Folders.Add(categoryModel);
+        //        await _context.SaveChangesAsync();
+
+        //        var createdCategory = await _context.Folders
+        //            .Include(c => c.Children)
+        //            .FirstOrDefaultAsync(c => c.Id_folder == categoryModel.Id_folder);
+
+        //        return _mapper.Map<FolderDTO>(createdCategory);
+        //    }
+        //    catch (NotFoundException)
+        //    {
+        //        throw;
+        //    }
+        //    catch (BadRequestException)
+        //    {
+        //        throw;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception("Có lỗi xảy ra khi tạo danh mục hình ảnh mới: " + ex.Message, ex);
+        //    }
+        //}
+
+
         public async Task<FolderDTO> CreateFolderAsync(FolderDTO folder)
         {
             try
@@ -100,6 +147,14 @@ namespace ttxaphuong.Services
                 _context.Folders.Add(categoryModel);
                 await _context.SaveChangesAsync();
 
+                // Tạo folder trên hosting
+                var folderPath = Path.Combine(_env.ContentRootPath, "Uploads", folder.Name_folder);
+
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
                 var createdCategory = await _context.Folders
                     .Include(c => c.Children)
                     .FirstOrDefaultAsync(c => c.Id_folder == categoryModel.Id_folder);
@@ -120,6 +175,60 @@ namespace ttxaphuong.Services
             }
         }
 
+        //public async Task<FolderDTO> UpdateFolderAsync(int id, FolderDTO folderDTO)
+        //{
+        //    try
+        //    {
+        //        var model = await _context.Folders
+        //            .Include(c => c.Children)
+        //            .FirstOrDefaultAsync(c => c.Id_folder == id)
+        //            ?? throw new NotFoundException($"Không tìm thấy danh mục hình ảnh với Id: {id}");
+
+        //        if (string.IsNullOrWhiteSpace(folderDTO.Name_folder))
+        //        {
+        //            throw new BadRequestException("Tên danh mục hình ảnh không được để trống.");
+        //        }
+
+        //        model.Name_folder = folderDTO.Name_folder;
+
+        //        if (folderDTO.ParentId != model.ParentId)
+        //        {
+        //            if (folderDTO.ParentId.HasValue)
+        //            {
+        //                var parentExists = await _context.Folders.AnyAsync(c => c.Id_folder == folderDTO.ParentId.Value);
+        //                if (!parentExists)
+        //                {
+        //                    throw new NotFoundException($"Danh mục cha với Id {folderDTO.ParentId.Value} không tồn tại.");
+        //                }
+        //                if (await IsDescendant(id, folderDTO.ParentId.Value))
+        //                {
+        //                    throw new BadRequestException("Không thể đặt danh mục làm cha của chính nó hoặc con của nó.");
+        //                }
+        //            }
+        //            model.ParentId = folderDTO.ParentId; // Cho phép ParentId = null
+        //        }
+
+        //        await _context.SaveChangesAsync();
+
+        //        var allCategories = await _context.Folders.ToListAsync();
+        //        BuildCategoryHierarchy(model, allCategories);
+
+        //        return _mapper.Map<FolderDTO>(model);
+        //    }
+        //    catch (NotFoundException)
+        //    {
+        //        throw;
+        //    }
+        //    catch (BadRequestException)
+        //    {
+        //        throw;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception("Có lỗi xảy ra khi cập nhật danh mục tin tức: " + ex.Message, ex);
+        //    }
+        //}
+
         public async Task<FolderDTO> UpdateFolderAsync(int id, FolderDTO folderDTO)
         {
             try
@@ -134,8 +243,21 @@ namespace ttxaphuong.Services
                     throw new BadRequestException("Tên danh mục hình ảnh không được để trống.");
                 }
 
-                model.Name_folder = folderDTO.Name_folder;
+                // Check đổi tên folder
+                if (model.Name_folder != folderDTO.Name_folder)
+                {
+                    var oldPath = Path.Combine(_env.ContentRootPath, "Uploads", model.Name_folder);
+                    var newPath = Path.Combine(_env.ContentRootPath, "Uploads", folderDTO.Name_folder);
 
+                    if (Directory.Exists(oldPath))
+                    {
+                        Directory.Move(oldPath, newPath);
+                    }
+
+                    model.Name_folder = folderDTO.Name_folder;
+                }
+
+                // Check đổi ParentId
                 if (folderDTO.ParentId != model.ParentId)
                 {
                     if (folderDTO.ParentId.HasValue)
@@ -150,7 +272,7 @@ namespace ttxaphuong.Services
                             throw new BadRequestException("Không thể đặt danh mục làm cha của chính nó hoặc con của nó.");
                         }
                     }
-                    model.ParentId = folderDTO.ParentId; // Cho phép ParentId = null
+                    model.ParentId = folderDTO.ParentId;
                 }
 
                 await _context.SaveChangesAsync();
@@ -170,9 +292,10 @@ namespace ttxaphuong.Services
             }
             catch (Exception ex)
             {
-                throw new Exception("Có lỗi xảy ra khi cập nhật danh mục tin tức: " + ex.Message, ex);
+                throw new Exception("Có lỗi xảy ra khi cập nhật danh mục hình ảnh: " + ex.Message, ex);
             }
         }
+
 
         private async Task<bool> IsDescendant(int id, int parentId)
         {
@@ -188,7 +311,49 @@ namespace ttxaphuong.Services
             return false;
         }
 
-        // Xóa từng danh mục
+        //// Xóa từng danh mục
+        //public async Task<object> DeleteFolderAsync(int id)
+        //{
+        //    try
+        //    {
+        //        var category = await _context.Folders
+        //            .Include(c => c.Children)
+        //            .FirstOrDefaultAsync(c => c.Id_folder == id)
+        //            ?? throw new NotFoundException($"Không tìm thấy danh mục hình ảnh với Id: {id}");
+
+        //        foreach (var child in category.Children)
+        //        {
+        //            child.ParentId = category.ParentId; // Chuyển lên cấp cha của danh mục bị xóa
+        //        }
+
+        //        // Lấy danh sách ảnh trong thư mục
+        //        var imagesInFolder = await _context.PostImages.Where(img => img.Id_folder == id).ToListAsync();
+
+        //        // Xóa ảnh khỏi thư mục vật lý
+        //        var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "Uploads", category.Name_folder);
+        //        if (Directory.Exists(uploadsFolder))
+        //        {
+        //            Directory.Delete(uploadsFolder, true); // Xóa toàn bộ thư mục và các file bên trong
+        //        }
+
+        //        // Xóa ảnh khỏi database
+        //        _context.PostImages.RemoveRange(imagesInFolder);
+
+        //        _context.Folders.Remove(category);
+        //        await _context.SaveChangesAsync();
+
+        //        return new { message = "Xóa danh mục hình ảnh thành công, các menu con đã được chuyển lên cấp cao hơn!" };
+        //    }
+        //    catch (NotFoundException)
+        //    {
+        //        throw;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception("Có lỗi xảy ra khi xóa danh mục tin tức: " + ex.Message, ex);
+        //    }
+        //}
+
         public async Task<object> DeleteFolderAsync(int id)
         {
             try
@@ -198,24 +363,33 @@ namespace ttxaphuong.Services
                     .FirstOrDefaultAsync(c => c.Id_folder == id)
                     ?? throw new NotFoundException($"Không tìm thấy danh mục hình ảnh với Id: {id}");
 
-                foreach (var child in category.Children)
+                // Move con lên cha
+                if (category.Children.Any())
                 {
-                    child.ParentId = category.ParentId; // Chuyển lên cấp cha của danh mục bị xóa
+                    foreach (var child in category.Children)
+                    {
+                        child.ParentId = category.ParentId;
+                    }
                 }
 
-                // Lấy danh sách ảnh trong thư mục
-                var imagesInFolder = await _context.PostImages.Where(img => img.Id_folder == id).ToListAsync();
+                // Lấy ảnh trong folder
+                var imagesInFolder = await _context.PostImages
+                                        .Where(img => img.Id_folder == id)
+                                        .ToListAsync();
 
-                // Xóa ảnh khỏi thư mục vật lý
+                if (imagesInFolder.Any())
+                {
+                    _context.PostImages.RemoveRange(imagesInFolder);
+                }
+
+                // Xoá folder vật lý
                 var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "Uploads", category.Name_folder);
                 if (Directory.Exists(uploadsFolder))
                 {
-                    Directory.Delete(uploadsFolder, true); // Xóa toàn bộ thư mục và các file bên trong
+                    Directory.Delete(uploadsFolder, true); // true = xoá luôn file bên trong
                 }
 
-                // Xóa ảnh khỏi database
-                _context.PostImages.RemoveRange(imagesInFolder);
-
+                // Xoá folder DB
                 _context.Folders.Remove(category);
                 await _context.SaveChangesAsync();
 
@@ -227,8 +401,9 @@ namespace ttxaphuong.Services
             }
             catch (Exception ex)
             {
-                throw new Exception("Có lỗi xảy ra khi xóa danh mục tin tức: " + ex.Message, ex);
+                throw new Exception("Có lỗi xảy ra khi xóa danh mục hình ảnh: " + ex.Message, ex);
             }
         }
+
     }
 }
