@@ -1,5 +1,7 @@
-﻿using AutoMapper;
+using AutoMapper;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Text;
 using System.Text.RegularExpressions;
 using ttxaphuong.Data;
@@ -14,11 +16,13 @@ namespace ttxaphuong.Services
     {
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public UploadFileService(ApplicationDbContext context, IMapper mapper)
+        public UploadFileService(ApplicationDbContext context, IMapper mapper, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
             _mapper = mapper;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public async Task<IEnumerable<PostImageDTO>> GetAllPostImageAsync()
