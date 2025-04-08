@@ -20,7 +20,7 @@ namespace ttxaphuong.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Manager")]
+        // [Authorize(Roles = "Manager")]
         public async Task<IActionResult> GetImages()
         {
             return Ok(await _uploadFileService.GetAllPostImageAsync());
@@ -56,7 +56,7 @@ namespace ttxaphuong.Controllers
         }
 
         [HttpPost("UploadImage")]
-        [Authorize(Roles = "Manager")]
+        // [Authorize(Roles = "Manager")]
         public async Task<ActionResult<PostImageDTO>> UploadImage(IFormFile file, [FromForm] int? folderId)
         {
             try
