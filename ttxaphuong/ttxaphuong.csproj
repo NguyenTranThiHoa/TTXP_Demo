@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Uploads\DanhMucHinhAnh2\**" />
+    <Content Remove="Uploads\DanhMucHinhAnh2\**" />
+    <EmbeddedResource Remove="Uploads\DanhMucHinhAnh2\**" />
+    <None Remove="Uploads\DanhMucHinhAnh2\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="14.0.0" />
     <PackageReference Include="BCrypt.Net-Core" Version="1.6.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.10" />
@@ -28,7 +35,6 @@
     <Folder Include="Migrations\" />
     <Folder Include="wwwroot\" />
     <Folder Include="wwwroot\" />
-    <Folder Include="Uploads\DanhMucHinhAnh2\" />
     <Folder Include="Pdf\" />
     <None Update="isrgrootx1.pem">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

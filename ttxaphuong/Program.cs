@@ -80,10 +80,10 @@ builder.Services.AddCors(options =>
         {
             policy.WithOrigins(
                 "http://localhost:4200",
-                "https://ttdt2503.id.vn",
+                "https://ttdt2503.id.vn", // Cổng của Tôi
                 "https://congtt123.id.vn",
                 "https://ttdt03.id.vn"
-            )
+            ) 
                   .AllowAnyHeader()
                   .AllowAnyMethod();
                   //.AllowCredentials(); // ✅ Cho phép gửi Authorization header
