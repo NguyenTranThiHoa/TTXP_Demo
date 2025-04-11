@@ -84,7 +84,7 @@ builder.Services.AddCors(options =>
                 "https://congtt123.id.vn"
             ) 
                   .AllowAnyHeader()
-                  .AllowAnyMethod();
+                  .AllowAnyMethod(); 
                   //.AllowCredentials(); // ✅ Cho phép gửi Authorization header
         });
 });
