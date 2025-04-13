@@ -18,7 +18,7 @@ namespace ttxaphuong.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Manager")]
+        [AllowAnonymous] // Cho phép đăng nhập mà không cần xác thực
         public async Task<IActionResult> GetPdf()
         {
             return Ok(await _uploadFilePdfService.GetAllPostPdfAsync());
