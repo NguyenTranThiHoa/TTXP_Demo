@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "D:\\THUCTAP\\TTXP_Demo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F2933749-7789-4971-94DA-D55A1E9C4237}|ttxaphuong\\ttxaphuong.csproj|d:\\thuctap\\ttxp_demo\\ttxaphuong\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2933749-7789-4971-94DA-D55A1E9C4237}|ttxaphuong\\ttxaphuong.csproj|solutionrelative:ttxaphuong\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F2933749-7789-4971-94DA-D55A1E9C4237}|ttxaphuong\\ttxaphuong.csproj|d:\\thuctap\\ttxp_demo\\ttxaphuong\\services\\uploadfileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2933749-7789-4971-94DA-D55A1E9C4237}|ttxaphuong\\ttxaphuong.csproj|solutionrelative:ttxaphuong\\services\\uploadfileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F2933749-7789-4971-94DA-D55A1E9C4237}|ttxaphuong\\ttxaphuong.csproj|d:\\thuctap\\ttxp_demo\\ttxaphuong\\services\\folderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F2933749-7789-4971-94DA-D55A1E9C4237}|ttxaphuong\\ttxaphuong.csproj|solutionrelative:ttxaphuong\\services\\folderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F2933749-7789-4971-94DA-D55A1E9C4237}|ttxaphuong\\ttxaphuong.csproj|d:\\thuctap\\ttxp_demo\\ttxaphuong\\services\\uploadfilepdfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2933749-7789-4971-94DA-D55A1E9C4237}|ttxaphuong\\ttxaphuong.csproj|solutionrelative:ttxaphuong\\services\\uploadfilepdfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F2933749-7789-4971-94DA-D55A1E9C4237}|ttxaphuong\\ttxaphuong.csproj|d:\\thuctap\\ttxp_demo\\ttxaphuong\\services\\folderpdfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2933749-7789-4971-94DA-D55A1E9C4237}|ttxaphuong\\ttxaphuong.csproj|solutionrelative:ttxaphuong\\services\\folderpdfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 18,
+          "SelectedChildIndex": 15,
           "Children": [
             {
               "$type": "Bookmark",
@@ -90,54 +82,34 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "FolderService.cs",
               "DocumentMoniker": "D:\\THUCTAP\\TTXP_Demo\\ttxaphuong\\Services\\FolderService.cs",
               "RelativeDocumentMoniker": "ttxaphuong\\Services\\FolderService.cs",
               "ToolTip": "D:\\THUCTAP\\TTXP_Demo\\ttxaphuong\\Services\\FolderService.cs",
               "RelativeToolTip": "ttxaphuong\\Services\\FolderService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAowIoAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-09T17:10:16.454Z",
               "EditorCaption": ""
-            },
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UploadFileService.cs",
-              "DocumentMoniker": "D:\\THUCTAP\\TTXP_Demo\\ttxaphuong\\Services\\UploadFileService.cs",
-              "RelativeDocumentMoniker": "ttxaphuong\\Services\\UploadFileService.cs",
-              "ToolTip": "D:\\THUCTAP\\TTXP_Demo\\ttxaphuong\\Services\\UploadFileService.cs",
-              "RelativeToolTip": "ttxaphuong\\Services\\UploadFileService.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAuwBsAAAAAAAAAAAAAAA==",
+              "Title": "FolderPdfService.cs",
+              "DocumentMoniker": "D:\\THUCTAP\\TTXP_Demo\\ttxaphuong\\Services\\FolderPdfService.cs",
+              "RelativeDocumentMoniker": "ttxaphuong\\Services\\FolderPdfService.cs",
+              "ToolTip": "D:\\THUCTAP\\TTXP_Demo\\ttxaphuong\\Services\\FolderPdfService.cs",
+              "RelativeToolTip": "ttxaphuong\\Services\\FolderPdfService.cs",
+              "ViewState": "AgIAAJAAAAAAAAAAAAAowJoAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-09T17:10:03.527Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UploadFilePdfService.cs",
-              "DocumentMoniker": "D:\\THUCTAP\\TTXP_Demo\\ttxaphuong\\Services\\UploadFilePdfService.cs",
-              "RelativeDocumentMoniker": "ttxaphuong\\Services\\UploadFilePdfService.cs",
-              "ToolTip": "D:\\THUCTAP\\TTXP_Demo\\ttxaphuong\\Services\\UploadFilePdfService.cs",
-              "RelativeToolTip": "ttxaphuong\\Services\\UploadFilePdfService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-09T17:10:02.593Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\THUCTAP\\TTXP_Demo\\ttxaphuong\\Program.cs",
-              "RelativeDocumentMoniker": "ttxaphuong\\Program.cs",
-              "ToolTip": "D:\\THUCTAP\\TTXP_Demo\\ttxaphuong\\Program.cs",
-              "RelativeToolTip": "ttxaphuong\\Program.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAAAE8AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-09T14:31:15.237Z",
+              "WhenOpened": "2025-04-11T04:24:47.501Z",
               "EditorCaption": ""
             }
           ]

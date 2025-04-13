@@ -158,6 +158,7 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = "/api/pdf"
 });
 
+app.UseRouting();
 
 app.UseCors("AllowAngularApp");
 

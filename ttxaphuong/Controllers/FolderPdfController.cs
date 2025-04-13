@@ -32,7 +32,6 @@ namespace ttxaphuong.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Manager")]
-        //[AllowAnonymous] // Cho phép đăng nhập mà không cần xác thực
         public async Task<IActionResult> CreateFolderPdf([FromBody] FolderPdfDTO folder)
         {
             return Ok(await _folderPdfService.CreateFolderPdfAsync(folder));

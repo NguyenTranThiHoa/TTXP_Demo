@@ -164,7 +164,6 @@ namespace ttxaphuong.Services
             }
         }
 
-
         public async Task<FolderPdfDTO> UpdateFolderPdfAsync(int id, FolderPdfDTO folderDTO)
         {
             try
