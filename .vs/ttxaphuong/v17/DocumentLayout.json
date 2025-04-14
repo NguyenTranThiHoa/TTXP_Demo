@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "D:\\THUCTAP\\TTXP_Demo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F2933749-7789-4971-94DA-D55A1E9C4237}|ttxaphuong\\ttxaphuong.csproj|d:\\thuctap\\ttxp_demo\\ttxaphuong\\services\\folderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2933749-7789-4971-94DA-D55A1E9C4237}|ttxaphuong\\ttxaphuong.csproj|solutionrelative:ttxaphuong\\services\\folderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F2933749-7789-4971-94DA-D55A1E9C4237}|ttxaphuong\\ttxaphuong.csproj|d:\\thuctap\\ttxp_demo\\ttxaphuong\\controllers\\uploadfilepdfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2933749-7789-4971-94DA-D55A1E9C4237}|ttxaphuong\\ttxaphuong.csproj|solutionrelative:ttxaphuong\\controllers\\uploadfilepdfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2933749-7789-4971-94DA-D55A1E9C4237}|ttxaphuong\\ttxaphuong.csproj|d:\\thuctap\\ttxp_demo\\ttxaphuong\\controllers\\uploadfilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2933749-7789-4971-94DA-D55A1E9C4237}|ttxaphuong\\ttxaphuong.csproj|solutionrelative:ttxaphuong\\controllers\\uploadfilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2933749-7789-4971-94DA-D55A1E9C4237}|ttxaphuong\\ttxaphuong.csproj|d:\\thuctap\\ttxp_demo\\ttxaphuong\\controllers\\folderpdfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2933749-7789-4971-94DA-D55A1E9C4237}|ttxaphuong\\ttxaphuong.csproj|solutionrelative:ttxaphuong\\controllers\\folderpdfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F2933749-7789-4971-94DA-D55A1E9C4237}|ttxaphuong\\ttxaphuong.csproj|d:\\thuctap\\ttxp_demo\\ttxaphuong\\services\\folderpdfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -18,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 15,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -79,44 +87,12 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FolderService.cs",
-              "DocumentMoniker": "D:\\THUCTAP\\TTXP_Demo\\ttxaphuong\\Services\\FolderService.cs",
-              "RelativeDocumentMoniker": "ttxaphuong\\Services\\FolderService.cs",
-              "ToolTip": "D:\\THUCTAP\\TTXP_Demo\\ttxaphuong\\Services\\FolderService.cs",
-              "RelativeToolTip": "ttxaphuong\\Services\\FolderService.cs",
-              "ViewState": "AgIAAHUAAAAAAAAAAAAowIoAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-09T17:10:16.454Z",
-              "EditorCaption": ""
             }
           ]
         },
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FolderPdfService.cs",
-              "DocumentMoniker": "D:\\THUCTAP\\TTXP_Demo\\ttxaphuong\\Services\\FolderPdfService.cs",
-              "RelativeDocumentMoniker": "ttxaphuong\\Services\\FolderPdfService.cs",
-              "ToolTip": "D:\\THUCTAP\\TTXP_Demo\\ttxaphuong\\Services\\FolderPdfService.cs",
-              "RelativeToolTip": "ttxaphuong\\Services\\FolderPdfService.cs",
-              "ViewState": "AgIAAJAAAAAAAAAAAAAowJoAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-11T04:24:47.501Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 1524,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -125,6 +101,58 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UploadFileController.cs",
+              "DocumentMoniker": "D:\\THUCTAP\\TTXP_Demo\\ttxaphuong\\Controllers\\UploadFileController.cs",
+              "RelativeDocumentMoniker": "ttxaphuong\\Controllers\\UploadFileController.cs",
+              "ToolTip": "D:\\THUCTAP\\TTXP_Demo\\ttxaphuong\\Controllers\\UploadFileController.cs",
+              "RelativeToolTip": "ttxaphuong\\Controllers\\UploadFileController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T15:22:19.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UploadFilePdfController.cs",
+              "DocumentMoniker": "D:\\THUCTAP\\TTXP_Demo\\ttxaphuong\\Controllers\\UploadFilePdfController.cs",
+              "RelativeDocumentMoniker": "ttxaphuong\\Controllers\\UploadFilePdfController.cs",
+              "ToolTip": "D:\\THUCTAP\\TTXP_Demo\\ttxaphuong\\Controllers\\UploadFilePdfController.cs",
+              "RelativeToolTip": "ttxaphuong\\Controllers\\UploadFilePdfController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBQAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T15:22:07.712Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FolderPdfController.cs",
+              "DocumentMoniker": "D:\\THUCTAP\\TTXP_Demo\\ttxaphuong\\Controllers\\FolderPdfController.cs",
+              "RelativeDocumentMoniker": "ttxaphuong\\Controllers\\FolderPdfController.cs",
+              "ToolTip": "D:\\THUCTAP\\TTXP_Demo\\ttxaphuong\\Controllers\\FolderPdfController.cs",
+              "RelativeToolTip": "ttxaphuong\\Controllers\\FolderPdfController.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAA5wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T15:21:52.169Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FolderPdfService.cs",
+              "DocumentMoniker": "D:\\THUCTAP\\TTXP_Demo\\ttxaphuong\\Services\\FolderPdfService.cs",
+              "RelativeDocumentMoniker": "ttxaphuong\\Services\\FolderPdfService.cs",
+              "ToolTip": "D:\\THUCTAP\\TTXP_Demo\\ttxaphuong\\Services\\FolderPdfService.cs",
+              "RelativeToolTip": "ttxaphuong\\Services\\FolderPdfService.cs",
+              "ViewState": "AgIAAAYBAAAAAAAAAADwvxUBAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-11T04:24:47.501Z",
+              "EditorCaption": ""
             }
           ]
         }

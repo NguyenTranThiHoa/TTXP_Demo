@@ -146,21 +146,56 @@ if (!Directory.Exists(pdfPath))
     Directory.CreateDirectory(pdfPath);
 }
 
+//app.UseStaticFiles(new StaticFileOptions
+//{
+//    FileProvider = new PhysicalFileProvider(uploadPath),
+//    RequestPath = "/api/images"
+//});
+
+//app.UseStaticFiles(new StaticFileOptions
+//{
+//    FileProvider = new PhysicalFileProvider(pdfPath),
+//    RequestPath = "/api/pdf"
+//});
+
+app.UseCors("AllowAngularApp");
+
+var allowedOrigins = new[] {
+                "https://ttdt2503.id.vn", // Cổng của Tôi
+                "https://ttdt03.id.vn",
+                "https://congtt123.id.vn"
+};
+
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(uploadPath),
-    RequestPath = "/api/images"
+    RequestPath = "/api/images",
+    OnPrepareResponse = ctx =>
+    {
+        var origin = ctx.Context.Request.Headers["Origin"].ToString();
+        if (allowedOrigins.Contains(origin))
+        {
+            ctx.Context.Response.Headers.Append("Access-Control-Allow-Origin", origin);
+            ctx.Context.Response.Headers.Append("Vary", "Origin"); // ✅ giúp browser xử lý cache đúng
+        }
+    }
 });
 
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(pdfPath),
-    RequestPath = "/api/pdf"
+    RequestPath = "/api/pdf",
+    OnPrepareResponse = ctx =>
+    {
+        var origin = ctx.Context.Request.Headers["Origin"].ToString();
+        if (allowedOrigins.Contains(origin))
+        {
+            ctx.Context.Response.Headers.Append("Access-Control-Allow-Origin", origin);
+            ctx.Context.Response.Headers.Append("Vary", "Origin");
+        }
+    }
 });
 
-app.UseRouting();
-
-app.UseCors("AllowAngularApp");
 
 app.UseMiddleware<ExceptionMiddleware>();
 

@@ -18,7 +18,7 @@ namespace ttxaphuong.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous] // Cho phép đăng nhập mà không cần xác thực
+        [AllowAnonymous]
         public async Task<IActionResult> GetPdf()
         {
             return Ok(await _uploadFilePdfService.GetAllPostPdfAsync());
