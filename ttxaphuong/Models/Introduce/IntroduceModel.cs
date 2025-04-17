@@ -16,5 +16,6 @@ namespace ttxaphuong.Models.Introduce
         public string? Description { get; set; }
         public DateTime? Create_at { get; set; }
         public string? Image_url { get; set; }
+
     }
 }
